@@ -35,7 +35,7 @@ export default function Login() {
       }
     })
     .then(res => res.json())
-    .then(data => data.isLoggedIn ? navigate("/home") : {})
+    .then(data => data.isLoggedIn ? navigate("/home") : data)
   })
 
   return (

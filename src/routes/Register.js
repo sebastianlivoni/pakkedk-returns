@@ -36,7 +36,7 @@ export default function Register() {
       }
     })
     .then(res => res.json())
-    .then(data => data.isLoggedIn ? navigate("/home") : {})
+    .then(data => data.isLoggedIn ? navigate("/home") : data)
   })
 
   return (
