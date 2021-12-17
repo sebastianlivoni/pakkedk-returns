@@ -23,7 +23,6 @@ export default function Login() {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       localStorage.setItem("token", data.token)
       navigate("/")
     })
@@ -36,7 +35,7 @@ export default function Login() {
       }
     })
     .then(res => res.json())
-    .then(data => data.isLoggedIn ? navigate("/home") : null)
+    .then(data => data.isLoggedIn ? navigate("/home") : {})
   })
 
   return (
