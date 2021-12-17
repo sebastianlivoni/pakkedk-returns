@@ -21,11 +21,13 @@ export default function Login() {
       },
       body: JSON.stringify(user)
     })
-    .then(res => res.json())
+    /*.then(res => res.json())
     .then(data => {
       localStorage.setItem("token", data.token)
       navigate("/")
-    })
+    })*/
+    .then((data) => data.text())
+    .then((res) => console.log(res));
   }
 
   useEffect(() => {
@@ -34,8 +36,10 @@ export default function Login() {
         "x-access-token": localStorage.getItem("token")
       }
     })
-    .then(res => res.json())
-    .then(data => data.isLoggedIn ? navigate("/home") : data)
+    .then((data) => data.text())
+    .then((res) => console.log(res));
+    /*.then(res => res.json())
+    .then(data => data.isLoggedIn ? navigate("/home") : data)*/
   })
 
   return (
