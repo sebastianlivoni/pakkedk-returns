@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const AddReturn = ({ show, close, data }) => {
   const [oldOrder, setOldOrder] = useState("");
   const [newOrder, setNewOrder] = useState("");
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState("");
   let navigate = useNavigate();
 
   function handleCreate(e) {

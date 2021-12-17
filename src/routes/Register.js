@@ -2,11 +2,11 @@ import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 
 export default function Register() {
-  let navigate = useNavigate();
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
-  const [confirmPassword, setConfirmPassword] = useState()
+  let navigate = useNavigate("");
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
 
   async function handleRegister(e) {
     e.preventDefault()

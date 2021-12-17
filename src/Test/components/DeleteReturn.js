@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { RefreshIcon } from '@heroicons/react/outline'
 
 export default function DeleteReturn({ show, close, data, fetchmydata }) {
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState("");
   const cancelButtonRef = useRef(null)
 
   function handleDelete(e) {

@@ -3,9 +3,9 @@ import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
 export default function AddReturn() {
-  const [oldOrder, setOldOrder] = useState();
-  const [newOrder, setNewOrder] = useState();
-  const [message, setMessage] = useState();
+  const [oldOrder, setOldOrder] = useState("");
+  const [newOrder, setNewOrder] = useState("");
+  const [message, setMessage] = useState("");
   let navigate = useNavigate();
 
   function handleReturn(e) {
