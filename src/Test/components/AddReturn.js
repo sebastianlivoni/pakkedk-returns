@@ -20,7 +20,7 @@ const AddReturn = ({ show, close, data }) => {
         newOrder: newOrder
       }
 
-      fetch(`/returns/add`, {
+      fetch(`https://pakkedk-return.herokuapp.com/returns/add`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

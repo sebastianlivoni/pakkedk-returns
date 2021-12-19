@@ -7,7 +7,7 @@ export default function EditReturn() {
   const [order, setOrder] = useState([])
 
   useEffect(() => {
-      fetch(`/returns/findone${id}`, {
+      fetch(`https://pakkedk-return.herokuapp.com/returns/findone${id}`, {
           method: "GET",
           headers: {
           "Content-type": "application/json",

@@ -18,7 +18,7 @@ export default function Register() {
         password: password
       }
 
-      fetch("/users/register", {
+      fetch("https://pakkedk-return.herokuapp.com/users/register", {
         method: "POST",
         headers: {
           "Content-type": "application/json"

@@ -13,7 +13,7 @@ export default function EditAccount() {
   const [userData, setUserData] = useState([]);
 
   function fetchData() {
-    fetch("/users/isUserAuth", {
+    fetch("https://pakkedk-return.herokuapp.com/users/isUserAuth", {
         headers: {
           "x-access-token": localStorage.getItem("token")
         }

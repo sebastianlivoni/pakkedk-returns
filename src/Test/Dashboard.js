@@ -7,7 +7,7 @@ export default function Dashboard() {
   const [returnsWaiting, setReturnsWaiting] = useState(0)
 
   function fetchData() {
-    fetch("/stats/allreturns", {
+    fetch("https://pakkedk-return.herokuapp.com/stats/allreturns", {
       headers: {
         "x-access-token": localStorage.getItem("token")
       }
@@ -17,7 +17,7 @@ export default function Dashboard() {
         setReturnsCount(data.count)
       })
 
-    fetch("/stats/readypickup", {
+    fetch("https://pakkedk-return.herokuapp.com/stats/readypickup", {
       headers: {
         "x-access-token": localStorage.getItem("token")
       }
@@ -27,7 +27,7 @@ export default function Dashboard() {
         setReadyPickupCount(data.count)
       })
 
-    fetch("/stats/returnssent", {
+    fetch("https://pakkedk-return.herokuapp.com/stats/returnssent", {
       headers: {
         "x-access-token": localStorage.getItem("token")
       }
@@ -37,7 +37,7 @@ export default function Dashboard() {
         setReturnsSent(data.count)
       })
 
-    fetch("/stats/waiting", {
+    fetch("https://pakkedk-return.herokuapp.com/stats/waiting", {
       headers: {
         "x-access-token": localStorage.getItem("token")
       }

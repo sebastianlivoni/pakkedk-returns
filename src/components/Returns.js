@@ -9,7 +9,7 @@ export default function Returns() {
   const Toggle = () => setShowModal(!showModal);
 
   useEffect(() => {
-    fetch("/returns/find", {
+    fetch("https://pakkedk-return.herokuapp.com/returns/find", {
       method: "GET",
       headers: {
         "Content-type": "application/json",

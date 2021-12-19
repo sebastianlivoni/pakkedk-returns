@@ -23,7 +23,7 @@ export default function Navbar() {
   const [name, setName] = useState();
 
   useEffect(() => {
-    fetch("/users/isUserAuth", {
+    fetch("https://pakkedk-return.herokuapp.com/users/isUserAuth", {
       headers: {
         "x-access-token": localStorage.getItem("token")
       }

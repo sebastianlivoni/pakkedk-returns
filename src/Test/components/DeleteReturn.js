@@ -9,7 +9,7 @@ export default function DeleteReturn({ show, close, data, fetchmydata }) {
   function handleDelete(e) {
     e.preventDefault()
 
-    fetch(`/returns/delete${data.id}`, {
+    fetch(`https://pakkedk-return.herokuapp.com/returns/delete${data.id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",

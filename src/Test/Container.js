@@ -9,7 +9,7 @@ export default function Container() {
   const [userID, setUserID] = useState("");
 
   useEffect(() => {
-    fetch("/users/isUserAuth", {
+    fetch("https://pakkedk-return.herokuapp.com/users/isUserAuth", {
       headers: {
         "x-access-token": localStorage.getItem("token")
       }

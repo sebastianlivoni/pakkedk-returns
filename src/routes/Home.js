@@ -9,7 +9,7 @@ export default function Home() {
   let navigate = useNavigate();
   
   useEffect(() => {
-    fetch("/users/isUserAuth", {
+    fetch("https://pakkedk-return.herokuapp.com/users/isUserAuth", {
       headers: {
         "x-access-token": localStorage.getItem("token")
       }

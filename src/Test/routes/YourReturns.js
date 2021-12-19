@@ -25,7 +25,7 @@ export default function YourReturns() {
     const DeleteToggle = () => setShowDeleteModal(!showDeleteModal);
 
     function fetchData() {
-        fetch("/users/isUserAuth", {
+        fetch("https://pakkedk-return.herokuapp.com/users/isUserAuth", {
             headers: {
               "x-access-token": localStorage.getItem("token")
             }
@@ -38,7 +38,7 @@ export default function YourReturns() {
               setUserID(data.id)
             }
           })
-          fetch(`/returns/findallown`, {
+          fetch(`https://pakkedk-return.herokuapp.com/returns/findallown`, {
               method: "GET",
               headers: {
               "Content-type": "application/json",

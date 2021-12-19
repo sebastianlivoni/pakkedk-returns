@@ -18,7 +18,7 @@ export default function AddReturn() {
         newOrder: newOrder
       }
 
-      fetch(`/returns/add`, {
+      fetch(`https://pakkedk-return.herokuapp.com/returns/add`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
