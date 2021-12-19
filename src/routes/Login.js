@@ -14,7 +14,7 @@ export default function Login() {
       password: password
     }
 
-    fetch("http://pakkedk-return.herokuapp.com/users/login", {
+    fetch("https://pakkedk-return.herokuapp.com/users/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -29,7 +29,7 @@ export default function Login() {
   }
 
   useEffect(() => {
-    fetch("http://pakkedk-return.herokuapp.com/users/isUserAuth", {
+    fetch("https://pakkedk-return.herokuapp.com/users/isUserAuth", {
       headers: {
         "x-access-token": localStorage.getItem("token")
       }
