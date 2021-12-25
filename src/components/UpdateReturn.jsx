@@ -140,6 +140,7 @@ const UpdateReturn = ({ show, close, data, fetchmydata }) => {
                           Set status
                         </label>
                         <div className="mt-1 relative rounded-md shadow-sm">
+                          {console.log(data)}
                           <select defaultValue={data.status} onChange={e => setStatus(e.target.value)}>
                           {statusMessage.map((option) => (
                             <option key={option.key} value={option.key}>{option.message}</option>

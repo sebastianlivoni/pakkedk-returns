@@ -101,7 +101,7 @@ export default function YourReturns() {
                                         <i className="material-icons-outlined text-base">visibility</i>
                                     </a>
                                     {userID == order.user._id ?
-                                        <a className="cursor-pointer" onClick={() => {Toggle(); setModalData({id: order._id, old: order.oldOrder, new: order.newOrder, comment: order.comment})}} >
+                                        <a className="cursor-pointer" onClick={() => {Toggle(); setModalData({id: order._id, old: order.oldOrder, new: order.newOrder, status: order.status, comment: order.comment})}} >
                                             <i className="material-icons-outlined text-base">edit</i>
                                         </a>
                                         :
