@@ -100,7 +100,7 @@ export default function YourReturns() {
                                     <a href="#" className="text-black mr-2">
                                         <i className="material-icons-outlined text-base">visibility</i>
                                     </a>
-                                    {userID == order.user._id ?
+                                    {/*userID == order.user._id*/ true ?
                                         <a className="cursor-pointer" onClick={() => {Toggle(); setModalData({id: order._id, old: order.oldOrder, new: order.newOrder, status: order.status, comment: order.comment})}} >
                                             <i className="material-icons-outlined text-base">edit</i>
                                         </a>
@@ -112,7 +112,7 @@ export default function YourReturns() {
                                     {/*<Link to={`/test/editreturn/${order._id}`} className="text-black hover:text-green-800 mx-2">
                                         <i className="material-icons-outlined text-base">edit</i>
                                     </Link>*/}
-                                    {userID == order.user._id ?
+                                    {/*userID == order.user._id*/ true ?
                                         <a href="#" className="text-black hover:text-red-800 ml-2" onClick={() => {DeleteToggle(); setDeleteModalData({id: order._id})}}>
                                             <i className="material-icons-round text-base">delete_outline</i>
                                         </a>
