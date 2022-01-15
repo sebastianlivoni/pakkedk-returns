@@ -85,11 +85,11 @@ export default function YourReturns() {
                                 <td className="p-3">
                                     {!order.comment ? "No comment..." : order.comment}
                                 </td>
-                                <td className="p-3 font-bold">
-                                    {order.oldOrder}
+                                <td className="p-3 font-bold underline">
+                                    <a href={"https://www.pakke.dk/UPSAdmin/orders_admin.php?oID=" + order.oldOrder} target="_blank">{order.oldOrder}</a>
                                 </td>
-                                <td className="p-3 font-bold">
-                                    {order.newOrder}
+                                <td className="p-3 font-bold underline">
+                                    <a href={"https://www.pakke.dk/UPSAdmin/orders_admin.php?oID=" + order.newOrder} target="_blank">{order.newOrder}</a>
                                 </td>
                                 <td className="p-3">
                                     <span className={statusMessage[order.status].colors}>

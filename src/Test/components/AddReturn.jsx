@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const AddReturn = ({ show, close, data }) => {
   const [oldOrder, setOldOrder] = useState("");
   const [newOrder, setNewOrder] = useState("");
+  const comment = useRef(null);
   const [message, setMessage] = useState("");
   let navigate = useNavigate();
 
@@ -17,7 +18,8 @@ const AddReturn = ({ show, close, data }) => {
 
       const order = {
         oldOrder: oldOrder,
-        newOrder: newOrder
+        newOrder: newOrder,
+        comment: comment.current.value
       }
 
       fetch(`https://pakkedk-return.herokuapp.com/returns/add`, {
@@ -111,6 +113,14 @@ const AddReturn = ({ show, close, data }) => {
                             defaultValue={data.new}
                             onChange={e => setNewOrder(e.target.value)}
                           />
+                        </div>
+                      </div>
+                      <div>
+                        <label htmlFor="price" className="block text-sm font-medium text-gray-700">
+                          Comment
+                        </label>
+                        <div className="mt-1 relative rounded-md">
+                          <textarea ref={comment} rows="4" cols="30" className='pl-3 py-1 sm:text-sm border-gray-200 border rounded-md'/>
                         </div>
                       </div>
                     </div>
