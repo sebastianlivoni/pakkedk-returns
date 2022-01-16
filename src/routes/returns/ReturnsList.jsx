@@ -5,6 +5,7 @@ import DeleteReturn from "../../components/DeleteReturn";
 import { useNavigate } from "react-router-dom";
 import images from '../../components/VectorImages'
 import VectorImage from "../../images/vectors/vector0.png"
+import { Link } from 'react-router-dom';
 
 const statusMessage = [
     {message: "waiting to be send", colors: "bg-red-100 text-red-800 font-bold py-2 rounded-md px-2"},
@@ -124,9 +125,11 @@ export default function ReturnsList({myprop}) {
                                     </span>
                                 </td>
                                 <td className="p-3 ">
-                                    <span className="text-black mr-2 cursor-pointer">
-                                        <i className="material-icons-outlined text-base">visibility</i>
-                                    </span>
+                                    <Link to={`/return/${order._id}`}>
+                                        <span className="text-black mr-2 cursor-pointer">
+                                            <i className="material-icons-outlined text-base">visibility</i>
+                                        </span>
+                                    </Link>
                                     {/*userID == order.user._id*/ true ?
                                         <span className="cursor-pointer" onClick={() => {Toggle(); setModalData({id: order._id, old: order.oldOrder, new: order.newOrder, status: order.status, comment: order.comment})}} >
                                             <i className="material-icons-outlined text-base cursor-pointer">edit</i>
@@ -152,7 +155,7 @@ export default function ReturnsList({myprop}) {
                             </tr>
                         ))
                         :
-                        <p className="text-center absolute">There are no items right now in this category.</p>
+                        <span className="text-center absolute">There are no items right now in this category.</span>
                         }
                     </tbody>
                 </table>

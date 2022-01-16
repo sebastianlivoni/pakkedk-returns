@@ -17,6 +17,7 @@ import ReadyToPickup from './routes/returns/ReadyToPickup';
 import Reportabug from './routes/ReportABug';
 import Returnssent from './routes/returns/Returnssent';
 import EditAccount from './routes/EditAccount';
+import Return from './routes/Return';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -37,6 +38,7 @@ ReactDOM.render(
           <Route path="reportabug" element={<Reportabug />} />
           <Route path="returnssent" element={<Returnssent />} />
           <Route path="editaccount" element={<EditAccount />} />
+          <Route path="return/:id" element={<Return />} />
           {/*<Route path="editreturn/:id" element={<EditReturn />} />*/}
         </Route>
       </Routes>
