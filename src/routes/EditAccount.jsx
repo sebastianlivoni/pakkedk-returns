@@ -50,7 +50,7 @@ export default function EditAccount() {
       vectorimage: vectorImage,
     }
 
-    fetch(`/users/updatesettings`, {
+    fetch(`https://pakkedk-return.herokuapp.com/users/updatesettings`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
@@ -60,9 +60,8 @@ export default function EditAccount() {
     })
     .then(res => res.json())
     .then((data) => {
-      console.log(data)
-      /*localStorage.removeItem("token")
-      navigate("/login")*/
+      localStorage.removeItem("token")
+      navigate("/login")
     })
     .catch(err => console.log(err))
   }
