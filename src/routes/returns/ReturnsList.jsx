@@ -3,6 +3,8 @@ import UpdateReturn from "../../components/UpdateReturn";
 import '../../styles/returnslist.css'
 import DeleteReturn from "../../components/DeleteReturn";
 import { useNavigate } from "react-router-dom";
+import images from '../../components/VectorImages'
+import VectorImage from "../../images/vectors/vector0.png"
 
 const statusMessage = [
     {message: "waiting to be send", colors: "bg-red-100 text-red-800 font-bold py-2 rounded-md px-2"},
@@ -95,11 +97,12 @@ export default function ReturnsList({myprop}) {
                         </tr>
                     </thead>
                     <tbody>
-                        {orders.map((order) => (
+                        {orders.length !== 0 ? 
+                        orders.map((order) => (
                             <tr className="bg-white border-2" key={order._id}>
                                 <td className="p-3">
                                     <div className="flex align-items-center">
-                                        <img className="rounded-full h-12 w-12  object-cover" src="https://avatars.githubusercontent.com/u/29739749?v=4" alt="unsplash" />
+                                        <img className="rounded-full h-12 w-12  object-cover" src={images[order.user.vectorimage]} alt="unsplash" />
                                         <div className="ml-3">
                                             <div className="">{order.user.name}</div>
                                             <div className="text-gray-500">{order.user.email}</div>
@@ -147,7 +150,10 @@ export default function ReturnsList({myprop}) {
                                     }
                                 </td>
                             </tr>
-                        ))}
+                        ))
+                        :
+                        <p className="text-center absolute">There are no items right now in this category.</p>
+                        }
                     </tbody>
                 </table>
             </div>

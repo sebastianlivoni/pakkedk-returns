@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom';
+import images from '../components/VectorImages'
 
 export default function EditAccount() {
   const [defaultName, setDefaultName] = useState("");
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [vectorImage, setVectorImage] = useState(0)
   const [confirmPassword, setConfirmPassword] = useState("")
   const [message, setMessage] = useState("")
 
@@ -22,6 +24,7 @@ export default function EditAccount() {
         setName(data.name)
         setEmail(data.email)
         setDefaultName(data.name)
+        setVectorImage(data.vectorimage)
       })
     }
 
@@ -43,7 +46,8 @@ export default function EditAccount() {
     const profileSettings = {
       name: name,
       email: email,
-      password: password
+      password: password,
+      vectorimage: vectorImage,
     }
 
     fetch(`/users/updatesettings`, {
@@ -133,10 +137,18 @@ export default function EditAccount() {
                     {message}
                   </div>
                   <div className="col-span-12 sm:col-span-12">
-                    <div class="flex">
-                      <div class="mb-3">
-                        <label for="formFile" class="form-label inline-block mb-2">You want a custom profile picture just like seb's, right?<br /> Upload your image down below and and compete in the battle to have the coolest pb.<h1 className="font-black">OBS: Not working yet!</h1></label>
-                        <input class="" type="file" id="formFile" />
+                    <div className="flex">
+                      <div className="mb-3">
+                        <label htmlFor="formFile" className="form-label inline-block mb-2">You want a custom profile picture just like seb's, right?<br /> Pick a image to compete in the battle of having the coolest profile picture.<h1 className="font-black">Please choose one of the following image which best describes you! :D</h1></label>
+                        {/*<input class="" type="file" id="formFile" />*/}
+                        <div className="flex flex-wrap">
+                          {images.map((item, i) => (
+                            (i == vectorImage) ? 
+                            <img onClick={() => setVectorImage(i)} src={item} key={i} alt="custom alt vector" className="w-24 m-1 rounded-full border border-4 border-transparent border-red-500 cursor-pointer" />  
+                            :
+                            <img onClick={() => setVectorImage(i)} src={item} key={i} alt="custom alt vector" className="w-24 m-1 rounded-full border border-4 border-transparent hover:border-red-500 cursor-pointer"/>  
+                          ))}
+                        </div>    
                       </div>
                     </div>
                   </div>

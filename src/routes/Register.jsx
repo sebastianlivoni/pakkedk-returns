@@ -11,21 +11,22 @@ export default function Register() {
   async function handleRegister(e) {
     e.preventDefault()
 
-    if (password === confirmPassword) {
+    if (password === confirmPassword){
       const user = {
         name: name,
         email: email,
         password: password
       }
 
-      fetch("https://pakkedk-return.herokuapp.com/users/register", {
+      fetch("https://pakkedk-return.herokuapp.com/users/register",{
         method: "POST",
         headers: {
           "Content-type": "application/json"
         },
         body: JSON.stringify(user)
       })
-      .then(navigate("/login"))
+      .then(res => res.json())
+      .then(data => data.message === "Success" ? navigate("/login") : console.log(data.message))
     }
   }
 

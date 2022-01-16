@@ -2,14 +2,38 @@ import { SearchIcon, BellIcon } from '@heroicons/react/outline'
 import { useNavigate, Link } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
+import { useEffect, useState } from "react"
+import images from './components/VectorImages'
 
 export default function Navbar() {
   let navigate = useNavigate();
+  const [vectorImage, setVectorImage] = useState(0)
 
   function Logout() {
     localStorage.removeItem("token")
     navigate("/login")
   }
+
+  function fetchData() {
+    fetch("https://pakkedk-return.herokuapp.com/users/isUserAuth", {
+        headers: {
+          "x-access-token": localStorage.getItem("token")
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+        setVectorImage(data.vectorimage)
+        if (data.vectorimage == 0) {
+          if (window.confirm("You can now pick between 6 profile pictures! That\'s is sooo nice. You can change your PB under \'Account\'. Please be aware that this message will keep alerting until you change to a profile picture... hahah!!")) {
+            navigate("/editaccount")
+          }
+        }
+      })
+    }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
 
   return (
     <>
@@ -36,7 +60,7 @@ export default function Navbar() {
                 <Menu as="div" className="relative inline-block text-left">
                   <div>
                     <Menu.Button>
-                    <img className="h-8 w-8 rounded-full" src="https://avatars.githubusercontent.com/u/29739749?v=4" alt=""/>
+                    <img className="h-8 w-8 rounded-full" src={images[vectorImage]} alt=""/>
                     </Menu.Button>
                   </div>
                   <Transition
