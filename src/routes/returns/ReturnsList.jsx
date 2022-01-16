@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const statusMessage = [
     {message: "waiting to be send", colors: "bg-red-100 text-red-800 font-bold py-2 rounded-md px-2"},
-    {message: "ready for pickup", colors: "bg-green-100 text-green-800 font-bold py-2 rounded-md px-2"},
+    {message: "ready to book pickup", colors: "bg-green-100 text-green-800 font-bold py-2 rounded-md px-2"},
     {message: "pickup booked", colors: "bg-violet-100 text-violet-800 font-bold py-2 rounded-md px-2"}
 ]
 

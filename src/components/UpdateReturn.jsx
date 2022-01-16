@@ -10,7 +10,8 @@ const statusMessage = [
 ]
 
 const UpdateReturn = ({ show, close, data, fetchmydata }) => {
-  const [status, setStatus] = useState(0);
+  /*const [status, setStatus] = useState(0);*/
+  const status = useRef(null);
   const [message, setMessage] = useState();
 
   const comment = useRef(null);
@@ -23,7 +24,7 @@ const UpdateReturn = ({ show, close, data, fetchmydata }) => {
     const newData = {
       old: oldOrder.current.value,
       new: newOrder.current.value,
-      status: status,
+      status: status.current.value,
       comment: comment.current.value
     }
 
@@ -140,7 +141,7 @@ const UpdateReturn = ({ show, close, data, fetchmydata }) => {
                           Set status
                         </label>
                         <div className="mt-1 relative rounded-md shadow-sm">
-                          <select defaultValue={data.status} onChange={e => setStatus(e.target.value)}>
+                          <select defaultValue={data.status} ref={status}>
                           {statusMessage.map((option) => (
                             <option key={option.key} value={option.key}>{option.message}</option>
                           ))}

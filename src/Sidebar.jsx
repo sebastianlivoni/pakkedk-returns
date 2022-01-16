@@ -8,7 +8,7 @@ const navigation = [
   { name: 'Dashboard', href: '/', current: true, icon: <InboxIcon /> },
   { name: 'All Returns', href: '/allreturns', current: false, icon: <CollectionIcon /> },
   { name: 'Your Returns', href: '/yourreturns', current: false, icon: <ArchiveIcon /> },
-  { name: 'Ready to pickup', href: '/readypickup', current: false, icon: <ClipboardCheckIcon /> },
+  { name: 'Ready to book pickup', href: '/readypickup', current: false, icon: <ClipboardCheckIcon /> },
   { name: 'Returns sent', href: '/returnssent', current: false, icon: <BookmarkIcon /> },
   { name: 'Returns recieved', href: 'https://docs.google.com/spreadsheets/d/1ZBrpPgaGxxN5hdo1eVWWKubqTIWe5zoQ0Hg-c0qiULY/edit', current: false, icon: <ClipboardCheckIcon /> },
   { name: 'Admin', href: '#', current: false, icon: <AdjustmentsIcon />, disabled: true },
