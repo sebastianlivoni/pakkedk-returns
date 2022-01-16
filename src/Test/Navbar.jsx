@@ -1,15 +1,7 @@
-import { SearchIcon, BellIcon, PlusSmIcon } from '@heroicons/react/outline'
+import { SearchIcon, BellIcon } from '@heroicons/react/outline'
 import { useNavigate, Link } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment, useEffect, useRef, useState } from 'react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
-
-const navigation = [
-  { name: 'Inbox', href: '#' },
-  { name: 'Report a bug & FAQ', href: '#' },
-  { name: 'Notifications', href: '#', icon: <BellIcon /> },
-  { name: 'PB', href: '#', icon: <img src="../images/face.jpeg" /> },
-]
+import { Fragment } from 'react'
 
 export default function Navbar() {
   let navigate = useNavigate();
@@ -37,10 +29,10 @@ export default function Navbar() {
         <div className="basis-8/12 my-auto">
           <nav className="float-right mr-8">
             <ul className="flex space-x-8 leading-6 font-semibold text-gray-700">
-              <li><a href="#" className="align-middle line-through cursor-not-allowed">Inbox</a></li>
+              <li><span className="align-middle line-through cursor-not-allowed">Inbox</span></li>
               <li><Link to="/reportabug" className="align-middle">Report a bug & FAQ</Link></li>
-              <li><a href="#"><BellIcon className="w-6 h-6 mt-0.5"/></a></li>
-              <li><a href="#">
+              <li><BellIcon className="w-6 h-6 mt-0.5"/></li>
+              <li><span>
                 <Menu as="div" className="relative inline-block text-left">
                   <div>
                     <Menu.Button>
@@ -73,7 +65,7 @@ export default function Navbar() {
                     </Menu.Items>
                   </Transition>
                 </Menu>
-              </a></li>
+              </span></li>
             </ul>
           </nav>
         </div>

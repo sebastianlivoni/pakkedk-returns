@@ -2,14 +2,12 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { RefreshIcon } from '@heroicons/react/outline'
-import { useNavigate } from "react-router-dom";
 
-const AddReturn = ({ show, close, data }) => {
+const AddReturn = ({ show, close }) => {
   const [oldOrder, setOldOrder] = useState("");
   const [newOrder, setNewOrder] = useState("");
   const comment = useRef(null);
   const [message, setMessage] = useState("");
-  let navigate = useNavigate();
 
   function handleCreate(e) {
     e.preventDefault()
@@ -95,7 +93,6 @@ const AddReturn = ({ show, close, data }) => {
                             className="block w-full pl-3 py-1 sm:text-sm border-gray-200 border rounded-md"
                             placeholder="Old order number"
                             onChange={e => setOldOrder(e.target.value)}
-                            defaultValue={data.old}
                           />
                         </div>
                       </div>
@@ -110,7 +107,6 @@ const AddReturn = ({ show, close, data }) => {
                             id="price"
                             className="block w-full pl-3 py-1 sm:text-sm border-gray-200 border rounded-md"
                             placeholder="New order number"
-                            defaultValue={data.new}
                             onChange={e => setNewOrder(e.target.value)}
                           />
                         </div>

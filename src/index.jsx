@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './routes/Login'
 import Register from './routes/Register'
@@ -10,8 +9,6 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Home from './routes/Home';
-import AddReturn from './routes/AddReturn';
 import AllReturns from './Test/routes/AllReturns';
 import Container from './Test/Container';
 import Dashboard from './Test/Dashboard';

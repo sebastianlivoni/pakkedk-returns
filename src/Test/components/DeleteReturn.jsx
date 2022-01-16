@@ -1,9 +1,8 @@
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { RefreshIcon } from '@heroicons/react/outline'
 
 export default function DeleteReturn({ show, close, data, fetchmydata }) {
-  const [message, setMessage] = useState("");
   const cancelButtonRef = useRef(null)
 
   function handleDelete(e) {
@@ -56,7 +55,7 @@ export default function DeleteReturn({ show, close, data, fetchmydata }) {
                   </div>
                   <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
-                      Delete return parcel order {data.id}
+                      Delete return parcel with new order number: {data.new} and old order: {data.old}
                     </Dialog.Title>
                     <div className="mt-2">
                       <div>
@@ -65,7 +64,6 @@ export default function DeleteReturn({ show, close, data, fetchmydata }) {
                     </div>
                   </div>
                 </div>
-                <p>{message}</p>
               </div>
               <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                 <button

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom";
 import UpdateReturn from "../../components/UpdateReturn";
 import '../styles/returnslist.css'
 import DeleteReturn from "./DeleteReturn";
@@ -14,7 +13,6 @@ const statusMessage = [
 export default function ReturnsList({myprop}) {
     const [orders, setOrders] = useState([])
     let navigate = useNavigate();
-    const [userID, setUserID] = useState("");
     
     const [showModal, setShowModal] = useState(false);
     const [modalData, setModalData] = useState([])
@@ -32,10 +30,8 @@ export default function ReturnsList({myprop}) {
           })
           .then(res => res.json())
           .then(data => {
-            if (data.isLoggedIn == false) {
+            if (data.isLoggedIn === false) {
               navigate("/login");
-            } else {
-              setUserID(data.id)
             }
           })
         fetch("https://pakkedk-return.herokuapp.com/returns/find", {
@@ -47,15 +43,15 @@ export default function ReturnsList({myprop}) {
         })
         .then(res => res.json())
         .then(data => {
-            if (myprop == "readypickup") {
+            if (myprop === "readypickup") {
                 data = data.filter((entry) => {
                     return entry.status === 1;
                 })
-            } else if (myprop == "allreturns") {
+            } else if (myprop === "allreturns") {
                 data = data.filter((entry) => {
                     return entry.status === 0;
                 })
-            } else if (myprop == "returnssent") {
+            } else if (myprop === "returnssent") {
                 data = data.filter((entry) => {
                     return entry.status === 2;
                 })
@@ -66,6 +62,7 @@ export default function ReturnsList({myprop}) {
 
     useEffect(() => {
         fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
   return(
@@ -88,7 +85,7 @@ export default function ReturnsList({myprop}) {
                             <tr className="bg-white border-2" key={order._id}>
                                 <td className="p-3">
                                     <div className="flex align-items-center">
-                                        <img className="rounded-full h-12 w-12  object-cover" src="https://avatars.githubusercontent.com/u/29739749?v=4" alt="unsplash image" />
+                                        <img className="rounded-full h-12 w-12  object-cover" src="https://avatars.githubusercontent.com/u/29739749?v=4" alt="unsplash" />
                                         <div className="ml-3">
                                             <div className="">{order.user.name}</div>
                                             <div className="text-gray-500">{order.user.email}</div>
@@ -99,10 +96,10 @@ export default function ReturnsList({myprop}) {
                                     {!order.comment ? "No comment..." : order.comment}
                                 </td>
                                 <td className="p-3 font-bold underline">
-                                    <a href={"https://www.pakke.dk/UPSAdmin/orders_admin.php?oID=" + order.oldOrder} target="_blank">{order.oldOrder}</a>
+                                    <a href={"https://www.pakke.dk/UPSAdmin/orders_admin.php?oID=" + order.oldOrder} target="_blank" rel="noreferrer">{order.oldOrder}</a>
                                 </td>
                                 <td className="p-3 font-bold underline">
-                                    <a href={"https://www.pakke.dk/UPSAdmin/orders_admin.php?oID=" + order.newOrder} target="_blank">{order.newOrder}</a>
+                                    <a href={"https://www.pakke.dk/UPSAdmin/orders_admin.php?oID=" + order.newOrder} target="_blank" rel="noreferrer">{order.newOrder}</a>
                                 </td>
                                 <td className="p-3">
                                     <span className={statusMessage[order.status].colors}>
@@ -110,29 +107,29 @@ export default function ReturnsList({myprop}) {
                                     </span>
                                 </td>
                                 <td className="p-3 ">
-                                    <a href="#" className="text-black mr-2">
+                                    <span className="text-black mr-2 cursor-pointer">
                                         <i className="material-icons-outlined text-base">visibility</i>
-                                    </a>
+                                    </span>
                                     {/*userID == order.user._id*/ true ?
-                                        <a className="cursor-pointer" onClick={() => {Toggle(); setModalData({id: order._id, old: order.oldOrder, new: order.newOrder, status: order.status, comment: order.comment})}} >
-                                            <i className="material-icons-outlined text-base">edit</i>
-                                        </a>
+                                        <span className="cursor-pointer" onClick={() => {Toggle(); setModalData({id: order._id, old: order.oldOrder, new: order.newOrder, status: order.status, comment: order.comment})}} >
+                                            <i className="material-icons-outlined text-base cursor-pointer">edit</i>
+                                        </span>
                                         :
-                                        <a className="cursor-pointer">
+                                        <span className="cursor-pointer">
                                             <i className="material-icons-outlined text-base text-red-800 cursor-not-allowed">edit</i>
-                                        </a>
+                                        </span>
                                     }
                                     {/*<Link to={`/test/editreturn/${order._id}`} className="text-black hover:text-green-800 mx-2">
                                         <i className="material-icons-outlined text-base">edit</i>
                                     </Link>*/}
                                     {/*userID == order.user._id*/ true ?
-                                        <a href="#" className="text-black hover:text-red-800 ml-2" onClick={() => {DeleteToggle(); setDeleteModalData({id: order._id})}}>
+                                        <span href="#" className="text-black hover:text-red-800 ml-2 cursor-pointer" onClick={() => {DeleteToggle(); setDeleteModalData({id: order._id, old: order.oldOrder, new: order.newOrder})}}>
                                             <i className="material-icons-round text-base">delete_outline</i>
-                                        </a>
+                                        </span>
                                         :
-                                        <a href="#" className="text-red-800 ml-2 cursor-not-allowed">
+                                        <span href="#" className="text-red-800 ml-2 cursor-not-allowed">
                                             <i className="material-icons-round text-base">delete_outline</i>
-                                        </a>
+                                        </span>
                                     }
                                 </td>
                             </tr>

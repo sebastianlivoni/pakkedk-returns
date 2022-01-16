@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function EditAccount() {
   const [name, setName] = useState("")
@@ -9,8 +9,6 @@ export default function EditAccount() {
   const [message, setMessage] = useState("")
 
   let navigate = useNavigate();
-
-  const [userData, setUserData] = useState([]);
 
   function fetchData() {
     fetch("https://pakkedk-return.herokuapp.com/users/isUserAuth", {
@@ -22,7 +20,6 @@ export default function EditAccount() {
       .then(data => {
         setName(data.name)
         setEmail(data.email)
-        setUserData(data)
       })
     }
 
@@ -34,7 +31,7 @@ export default function EditAccount() {
     e.preventDefault()
 
     if (password) {
-      if (confirmPassword != password) {
+      if (confirmPassword !== password) {
         setMessage("Please type identical passwords!")
         return null;
       }
