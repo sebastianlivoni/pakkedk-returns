@@ -34,30 +34,44 @@ export default function ReturnsList({myprop}) {
               navigate("/login");
             }
           })
-        fetch("https://pakkedk-return.herokuapp.com/returns/find", {
-            method: "GET",
-            headers: {
-            "Content-type": "application/json",
-            "x-access-token": localStorage.getItem("token")
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (myprop === "readypickup") {
-                data = data.filter((entry) => {
-                    return entry.status === 1;
-                })
-            } else if (myprop === "allreturns") {
-                data = data.filter((entry) => {
-                    return entry.status === 0;
-                })
-            } else if (myprop === "returnssent") {
-                data = data.filter((entry) => {
-                    return entry.status === 2;
-                })
-            }
-            setOrders(data)
-        })
+        if (myprop === "yourreturns") {
+            fetch(`https://pakkedk-return.herokuapp.com/returns/findallown`, {
+                method: "GET",
+                headers: {
+                "Content-type": "application/json",
+                "x-access-token": localStorage.getItem("token")
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+               setOrders(data)
+            })
+        } else {
+            fetch("https://pakkedk-return.herokuapp.com/returns/find", {
+                method: "GET",
+                headers: {
+                "Content-type": "application/json",
+                "x-access-token": localStorage.getItem("token")
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (myprop === "readypickup") {
+                    data = data.filter((entry) => {
+                        return entry.status === 1;
+                    })
+                } else if (myprop === "allreturns") {
+                    data = data.filter((entry) => {
+                        return entry.status === 0;
+                    })
+                } else if (myprop === "returnssent") {
+                    data = data.filter((entry) => {
+                        return entry.status === 2;
+                    })
+                }
+                setOrders(data)
+            })
+        }
     }
 
     useEffect(() => {
