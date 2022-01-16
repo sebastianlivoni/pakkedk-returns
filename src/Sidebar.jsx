@@ -1,6 +1,6 @@
 import { UserIcon, CollectionIcon, ClipboardCheckIcon, InboxIcon, ArchiveIcon, AdjustmentsIcon, BookmarkIcon } from '@heroicons/react/outline'
 import { useState } from 'react'
-import mainLogo from'../images/pakkedkwhite.png';
+import mainLogo from'./images/pakkedkwhite.png';
 import { Link, useLocation } from 'react-router-dom';
 import AddReturn from './components/AddReturn';
 

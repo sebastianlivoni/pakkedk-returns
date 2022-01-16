@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react"
-import UpdateReturn from "../../components/UpdateReturn";
+import UpdateReturn from "../components/UpdateReturn";
 import '../styles/returnslist.css'
-import DeleteReturn from "./DeleteReturn";
+import DeleteReturn from "../components/DeleteReturn";
 import { useNavigate } from "react-router-dom";
 
 const statusMessage = [
     {message: "waiting to be send", colors: "bg-red-100 text-red-800 font-bold py-2 rounded-md px-2"},
     {message: "ready for pickup", colors: "bg-green-100 text-green-800 font-bold py-2 rounded-md px-2"},
-    {message: "pickup booked", colors: "bg-violet-100 text-violet-800 font-bold py-2 rounded-md px-2"}
+    {message: "pickup booked", colors: "bg-violet-100 text-violet-800 font-bold py-2 rounded-md px-2 line-through"}
 ]
 
-export default function ReturnsList({myprop}) {
+export default function YourReturns() {
     const [orders, setOrders] = useState([])
     let navigate = useNavigate();
     
@@ -34,30 +34,17 @@ export default function ReturnsList({myprop}) {
               navigate("/login");
             }
           })
-        fetch("https://pakkedk-return.herokuapp.com/returns/find", {
-            method: "GET",
-            headers: {
-            "Content-type": "application/json",
-            "x-access-token": localStorage.getItem("token")
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (myprop === "readypickup") {
-                data = data.filter((entry) => {
-                    return entry.status === 1;
-                })
-            } else if (myprop === "allreturns") {
-                data = data.filter((entry) => {
-                    return entry.status === 0;
-                })
-            } else if (myprop === "returnssent") {
-                data = data.filter((entry) => {
-                    return entry.status === 2;
-                })
-            }
-            setOrders(data)
-        })
+          fetch(`https://pakkedk-return.herokuapp.com/returns/findallown`, {
+              method: "GET",
+              headers: {
+              "Content-type": "application/json",
+              "x-access-token": localStorage.getItem("token")
+              }
+          })
+          .then(res => res.json())
+          .then(data => {
+              setOrders(data)
+          })
     }
 
     useEffect(() => {
@@ -66,7 +53,7 @@ export default function ReturnsList({myprop}) {
     }, [])
 
   return(
-    <div className="flex justify-center mt-6 bg-gray-100">
+    <div className="flex justify-center pt-6 bg-gray-100">
         <div className="col-span-12">
             <div className="overflow-auto lg:overflow-visible ">
                 <table className="table text-black border-separate space-y-6 text-sm">
@@ -107,7 +94,7 @@ export default function ReturnsList({myprop}) {
                                     </span>
                                 </td>
                                 <td className="p-3 ">
-                                    <span className="text-black mr-2 cursor-pointer">
+                                    <span href="#" className="text-black mr-2">
                                         <i className="material-icons-outlined text-base">visibility</i>
                                     </span>
                                     {/*userID == order.user._id*/ true ?
@@ -138,8 +125,8 @@ export default function ReturnsList({myprop}) {
                 </table>
             </div>
         </div>
-        <UpdateReturn show={showModal} close={Toggle} data={modalData} fetchmydata={fetchData}/>
-        <DeleteReturn show={showDeleteModal} close={DeleteToggle} data={deleteModalData} fetchmydata={fetchData}/>
+        <UpdateReturn show={showModal} close={Toggle} data={modalData} fetchmydata={fetchData} />
+        <DeleteReturn show={showDeleteModal} close={DeleteToggle} data={deleteModalData} fetchmydata={fetchData} />
     </div>
   )
 }
