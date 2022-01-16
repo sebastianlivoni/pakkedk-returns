@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom';
 
 export default function EditAccount() {
+  const [defaultName, setDefaultName] = useState("");
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -20,6 +21,7 @@ export default function EditAccount() {
       .then(data => {
         setName(data.name)
         setEmail(data.email)
+        setDefaultName(data.name)
       })
     }
 
@@ -62,7 +64,7 @@ export default function EditAccount() {
   return (
     <>
       <div className="mx-auto mt-12 text-center">
-        <h1 className="font-bold text-xl">Hi {name}. Edit your account here</h1>
+        <h1 className="font-bold text-xl">Hi {defaultName}. Edit your account here</h1>
         <p><span className="text-fuchsia-600 font-black">!!!</span> When you click on the button "Update profile" you will automatically be logged out.</p>
       </div>
 

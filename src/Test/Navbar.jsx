@@ -13,8 +13,8 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="bg-white h-24 w-full flex flex-row">
-        <div className="basis-7/12 mx-6 my-auto">
+      <div className="bg-white h-24 flex flex-row">
+        <div className="basis-7/12 mx-6 my-auto relative">
           <div className="absolute items-center pointer-events-none mt-2.5">
             <SearchIcon className="h-6 w-6" />
           </div>
@@ -31,7 +31,7 @@ export default function Navbar() {
             <ul className="flex space-x-8 leading-6 font-semibold text-gray-700">
               <li><span className="align-middle line-through cursor-not-allowed">Inbox</span></li>
               <li><Link to="/reportabug" className="align-middle">Report a bug & FAQ</Link></li>
-              <li><BellIcon className="w-6 h-6 mt-0.5"/></li>
+              <li><BellIcon className="w-6 h-6 mt-0.5 cursor-not-allowed"/></li>
               <li><span>
                 <Menu as="div" className="relative inline-block text-left">
                   <div>
@@ -49,7 +49,7 @@ export default function Navbar() {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 w-24 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <div className="px-1 py-1">
+                      <div className="px-1">
                         <Menu.Item>
                           {({ active }) => (
                             <button

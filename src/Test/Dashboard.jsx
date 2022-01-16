@@ -53,8 +53,8 @@ export default function Dashboard() {
   }, [])
 
   return (
-    <div className="flex">
-      <div className="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 ml-16 mt-16 flex-1">
+    <div className="grid grid-rows-4 lg:grid-rows-2 grid-flow-col justify-center">
+      <div className="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 ml-16 mt-16 flex-1 w-80">
         <div className="flex items-center">
           <span className="rounded-xl relative p-4 bg-purple-200">
             <svg width="40" fill="currentColor" height="40" className="text-purple-500 h-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -87,7 +87,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 ml-16 mt-16 flex-1">
+      <div className="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 ml-16 mt-16 flex-1 w-80">
         <div className="flex items-center">
           <span className="rounded-xl relative p-4 bg-purple-200">
             <svg width="40" fill="currentColor" height="40" className="text-purple-500 h-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +120,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 ml-16 mt-16 flex-1">
+      <div className="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 ml-16 mt-16 flex-1 w-80">
         <div className="flex items-center">
           <span className="rounded-xl relative p-4 bg-purple-200">
             <svg width="40" fill="currentColor" height="40" className="text-purple-500 h-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -153,7 +153,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 ml-16 mt-16 flex-1">
+      <div className="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 ml-16 mt-16 flex-1 w-80">
         <div className="flex items-center">
           <span className="rounded-xl relative p-4 bg-purple-200">
             <svg width="40" fill="currentColor" height="40" className="text-purple-500 h-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
