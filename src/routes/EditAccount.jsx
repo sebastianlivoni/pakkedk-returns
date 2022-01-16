@@ -58,9 +58,11 @@ export default function EditAccount() {
       },
       body: JSON.stringify(profileSettings)
     })
-    .then(() => {
-      localStorage.removeItem("token")
-      navigate("/login")
+    .then(res => res.json())
+    .then((data) => {
+      console.log(data)
+      /*localStorage.removeItem("token")
+      navigate("/login")*/
     })
     .catch(err => console.log(err))
   }
