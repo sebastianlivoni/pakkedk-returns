@@ -1,4 +1,4 @@
-import ReturnsList from "../components/ReturnsList";
+import ReturnsList from "./ReturnsList";
 
 export default function ReadyToPickup() {
   return (

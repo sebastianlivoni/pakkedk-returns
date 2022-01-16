@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import UpdateReturn from "./UpdateReturn";
-import '../styles/returnslist.css'
-import DeleteReturn from "./DeleteReturn";
+import UpdateReturn from "../../components/UpdateReturn";
+import '../../styles/returnslist.css'
+import DeleteReturn from "../../components/DeleteReturn";
 import { useNavigate } from "react-router-dom";
 
 const statusMessage = [

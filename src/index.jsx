@@ -9,15 +9,14 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import AllReturns from './routes/AllReturns';
+import AllReturns from './routes/returns/AllReturns';
 import Container from './Container';
 import Dashboard from './Dashboard';
-import YourReturns from './routes/YourReturns';
-import ReadyToPickup from './routes/ReadyToPickup';
+import YourReturns from './routes/returns/YourReturns';
+import ReadyToPickup from './routes/returns/ReadyToPickup';
 import Reportabug from './routes/ReportABug';
-import Returnssent from './routes/Returnssent';
+import Returnssent from './routes/returns/Returnssent';
 import EditAccount from './routes/EditAccount';
-/*import EditReturn from './Test/routes/EditReturn';*/
 
 ReactDOM.render(
   <React.StrictMode>
