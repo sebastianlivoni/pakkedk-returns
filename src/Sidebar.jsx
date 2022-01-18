@@ -11,7 +11,7 @@ const navigation = [
   { name: 'Ready to book pickup', href: '/readypickup', current: false, icon: <ClipboardCheckIcon /> },
   { name: 'Returns sent', href: '/returnssent', current: false, icon: <BookmarkIcon /> },
   { name: 'Returns recieved', href: 'https://docs.google.com/spreadsheets/d/1ZBrpPgaGxxN5hdo1eVWWKubqTIWe5zoQ0Hg-c0qiULY/edit', current: false, icon: <ClipboardCheckIcon /> },
-  { name: 'Admin', href: '#', current: false, icon: <AdjustmentsIcon />, disabled: true },
+  { name: 'Admin', href: '/admin', current: false, icon: <AdjustmentsIcon />, disabled: true },
   { name: 'Account', href: '/editaccount', current: false, icon: <UserIcon /> },
 ]
 

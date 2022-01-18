@@ -10,6 +10,8 @@ export default function Return(props) {
 
 	const { id } = useParams()
 
+	const [isLoaded, setIsLoaded] = useState(false)
+
 	function fetchData() {
 		fetch(`https://pakkedk-return.herokuapp.com/returns/findone${id}`, {
             headers: {
@@ -22,6 +24,7 @@ export default function Return(props) {
 	        setOldOrder(data.oldOrder);
 	        setComment(data.comment);
 	        setHistory(data.history);
+	        setIsLoaded(true)
 	    })
 	}
 
@@ -29,6 +32,10 @@ export default function Return(props) {
       fetchData();
       // eslint-disable-next-line react-hooks/exhaustive-deps
 	 }, [])
+
+	if (!isLoaded) {
+		return <p className="text-center my-12 text-bold text-xl">Loading...</p>
+	}
 
 	return (
 		<div className="w-2/4 mx-auto mt-8">

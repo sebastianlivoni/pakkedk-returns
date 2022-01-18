@@ -18,6 +18,7 @@ import Reportabug from './routes/ReportABug';
 import Returnssent from './routes/returns/Returnssent';
 import EditAccount from './routes/EditAccount';
 import Return from './routes/Return';
+import Scanner from './routes/admin/scanner';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -39,6 +40,7 @@ ReactDOM.render(
           <Route path="returnssent" element={<Returnssent />} />
           <Route path="editaccount" element={<EditAccount />} />
           <Route path="return/:id" element={<Return />} />
+          <Route path="admin" element={<Scanner />} />
           {/*<Route path="editreturn/:id" element={<EditReturn />} />*/}
         </Route>
       </Routes>

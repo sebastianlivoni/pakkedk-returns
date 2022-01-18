@@ -25,6 +25,8 @@ export default function ReturnsList({myprop}) {
     const [deleteModalData, setDeleteModalData] = useState([])
     const DeleteToggle = () => setShowDeleteModal(!showDeleteModal);
 
+    const [isLoaded, setIsLoaded] = useState(false)
+
     function fetchData() {
         fetch("https://pakkedk-return.herokuapp.com/users/isUserAuth", {
             headers: {
@@ -48,6 +50,7 @@ export default function ReturnsList({myprop}) {
             .then(res => res.json())
             .then(data => {
                setOrders(data)
+               setIsLoaded(true)
             })
         } else {
             fetch("https://pakkedk-return.herokuapp.com/returns/find", {
@@ -73,6 +76,7 @@ export default function ReturnsList({myprop}) {
                     })
                 }
                 setOrders(data)
+                setIsLoaded(true)
             })
         }
     }
@@ -155,7 +159,7 @@ export default function ReturnsList({myprop}) {
                             </tr>
                         ))
                         :
-                        <span className="text-center absolute">There are no items right now in this category.</span>
+                        <span className="text-center absolute">{!isLoaded ? "Loading..." : "There are no items right now in this category."}</span>
                         }
                     </tbody>
                 </table>
