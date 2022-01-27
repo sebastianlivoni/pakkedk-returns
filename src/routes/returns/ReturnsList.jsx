@@ -27,6 +27,8 @@ export default function ReturnsList({myprop}) {
 
     const [isLoaded, setIsLoaded] = useState(false)
 
+    console.log(localStorage.getItem("token"))
+
     function fetchData() {
         fetch("https://pakkedk-return.herokuapp.com/users/isUserAuth", {
             headers: {
