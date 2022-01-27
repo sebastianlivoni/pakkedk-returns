@@ -144,7 +144,7 @@ export default function EditAccount() {
                         {/*<input class="" type="file" id="formFile" />*/}
                         <div className="flex flex-wrap">
                           {images.map((item, i) => (
-                            (i == vectorImage) ? 
+                            (i === vectorImage) ? 
                             <img onClick={() => setVectorImage(i)} src={item} key={i} alt="custom alt vector" className="w-24 m-1 rounded-full border border-4 border-transparent border-red-500 cursor-pointer" />  
                             :
                             <img onClick={() => setVectorImage(i)} src={item} key={i} alt="custom alt vector" className="w-24 m-1 rounded-full border border-4 border-transparent hover:border-red-500 cursor-pointer"/>  

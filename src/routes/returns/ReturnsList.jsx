@@ -4,7 +4,6 @@ import '../../styles/returnslist.css'
 import DeleteReturn from "../../components/DeleteReturn";
 import { useNavigate } from "react-router-dom";
 import images from '../../components/VectorImages'
-import VectorImage from "../../images/vectors/vector0.png"
 import { Link } from 'react-router-dom';
 
 const statusMessage = [
